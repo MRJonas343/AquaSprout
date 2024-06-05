@@ -208,48 +208,15 @@
             </div>
 
             <hr>
+            <div id="chart-container"></div>
 
             <div class="featured-clay">
 
-              <div>
-
-                <div></div>
-
-                <div>
-                  <h3>Super Cool Clay</h3>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                  <a href="javascript:void(0);" title="featured clay">Let's Go</a>
-                </div>
-
-              </div>
+              <canvas id="grafico"></canvas>
 
               <div>
 
-                <div></div>
 
-                <div>
-                  <h3>Fun With Clay</h3>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                  <a href="javascript:void(0);" title="featured clay">Let's Go</a>
-                </div>
-
-              </div>
-
-              <div>
-
-                <div></div>
-
-                <div>
-                  <h3>Type of Clay</h3>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                  <a href="javascript:void(0);" title="featured clay">Let's Go</a>
-                </div>
-
-              </div>
-
-              <div>
-
-                <div></div>
 
                 <div>
                   <h3>Clay Every Day</h3>
@@ -564,9 +531,28 @@
 
   </div>
 
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <!-- <p>Humidity: <span id="humidity">0</span></p> -->
+  <script>
+    const ctx = document.getElementById('grafico');
 
+    const graficoChart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: ['Humidity'],
+        datasets: [
+          {
+            label: 'Humidity',
+            data: [0],
+            backgroundColor: 'rgb(255, 99, 132)',
+            borderColor: 'rgb(255, 99, 132)',
+          }
+        ]
+      },
+      options: {}
+    });
+  </script>
 
-  <p>Humidity: <span id="humidity">0</span></p>
 
   <script src="/socket.io/socket.io.js"></script>
   <script src="./main.js"></script>
