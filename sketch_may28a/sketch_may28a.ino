@@ -3,21 +3,18 @@ int humedad = 0;
 
 void setup() {
    Serial.begin(9600);
-   pinMode(bomba,OUTPUT);
+   pinMode(bomba, OUTPUT);
 }
 
 void loop() {
-  
-humedad = analogRead(A0);
+  humedad = analogRead(A0);
 
-if (humedad>=721 && humedad<=1023){
-   digitalWrite(bomba,HIGH);
-}
-else {
-   digitalWrite(bomba,LOW);
-}
+  if (humedad >= 600 && humedad <= 1023) {
+    digitalWrite(bomba, LOW);
+  } else {
+    digitalWrite(bomba, HIGH);
+  }
 
-Serial.println(humedad);
-delay(2000);
-
+  Serial.println(humedad);
+  delay(2000);
 }
